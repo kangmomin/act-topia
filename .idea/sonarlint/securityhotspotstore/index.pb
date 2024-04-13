@@ -43,3 +43,10 @@ amain/src/main/kotlin/com/acttopia/main/global/config/security/exception/TokenNo
 main/gradlew,7\e\7e60ec437fc402578c521f575851b7a0ab8e2bb1
 p
 @main/src/main/kotlin/com/acttopia/main/domain/user/model/User.kt,d\8\d8cabafc6781d2d737d9c008f7341498859808a8
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
+S
+#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
+]
+-.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
