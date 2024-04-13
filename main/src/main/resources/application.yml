@@ -1,3 +1,30 @@
 spring:
-  application:
-    name: main
+  datasource:
+    url: jdbc:postgresql://host.docker.internal:5432/acttopia_db
+    username: acttopia_user
+    password: acttopiapassword1234!
+    driver-class-name: org.postgresql.Driver
+
+  data:
+    redis:
+      password: acttopiapassword1234!
+      host: host.docker.internal
+      port: 5892
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        default_batch_fetch_size: 100
+      show_sql: true
+      format_sql: true
+
+server:
+  port: 8443
+
+jwt:
+  accessSecret: 'ODZiYzdmYzUtOWJkOC00MWZkLWI2MjktZWJmZTFmODg5YWE5ODZiYzdmYzUtOWJkOC00MWZkLWI2MjktZWJmZTFmODg5YWE5ODZiYzdmYzUtOWJkOC00MWZkLWI2MjktZWJmZTFmODg5YWE5'
+  accessExp: 180000
+  refreshSecret: 'Y2Y3MTQ1N2EtMWQwYy00MTlhLWE2ODgtZDljMThmNDgyNzQ4ODZiYzdmYzUtOWJkOC00MWZkLWI2MjktZWJmZTFmODg5YWE5ODZiYzdmYzUtOWJkOC00MWZkLWI2MjktZWJmZTFmODg5YWE5'
+  refreshExp: 7200

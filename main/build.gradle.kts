@@ -1,11 +1,16 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-	id("org.springframework.boot") version "3.2.4"
+	id("org.springframework.boot") version "3.2.0"
 	id("io.spring.dependency-management") version "1.1.4"
-	kotlin("jvm") version "1.9.23"
-	kotlin("plugin.spring") version "1.9.23"
-	kotlin("plugin.jpa") version "1.9.23"
+
+	kotlin("jvm") version "1.9.20"
+	kotlin("kapt") version "1.9.20"
+	kotlin("plugin.spring") version "1.9.20"
+	kotlin("plugin.jpa") version "1.9.20"
+	kotlin("plugin.serialization") version "1.5.0"
+
+	idea
 }
 
 group = "com.act-topia"
@@ -25,12 +30,25 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
+	implementation("org.springframework.boot:spring-boot-starter-validation")
+
+	implementation ("io.jsonwebtoken:jjwt-api:0.11.2")
+	implementation ("io.jsonwebtoken:jjwt-jackson:0.11.2")
+	runtimeOnly("io.jsonwebtoken:jjwt-impl:0.11.2")
+
+	implementation("org.postgresql:postgresql")
+	implementation("com.querydsl:querydsl-jpa:5.0.0:jakarta")
+
 	runtimeOnly("org.postgresql:postgresql")
 
-	compileOnly("com.google.apis:google-api-services-sheets:v4-rev20210629-1.32.1")
+	compileOnly("com.google.apis:google-api-services-sheets:v4-rev20210629-1.31.1")
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.security:spring-security-test")
+
+	kapt("com.querydsl:querydsl-apt:5.0.0:jakarta")
+	kapt("jakarta.annotation:jakarta.annotation-api")
+	kapt("jakarta.persistence:jakarta.persistence-api")
 }
 
 tasks.withType<KotlinCompile> {
@@ -42,4 +60,12 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+}
+
+idea {
+	module {
+		val kaptMain = file("build/generated/source/kapt/main")
+		sourceDirs.add(kaptMain)
+		generatedSourceDirs.add(kaptMain)
+	}
 }
