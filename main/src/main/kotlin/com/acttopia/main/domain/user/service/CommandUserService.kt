@@ -1,6 +1,8 @@
 package com.acttopia.main.domain.user.service
 
+import com.acttopia.main.domain.user.controller.request.SlotUpdateRequest
 import com.acttopia.main.domain.user.exception.UserConflictException
+import com.acttopia.main.domain.user.exception.UserNotFoundException
 import com.acttopia.main.domain.user.exception.UserNotSavedException
 import com.acttopia.main.domain.user.model.User
 import com.acttopia.main.domain.user.model.constant.UserRole
@@ -22,4 +24,7 @@ class CommandUserService(
 
         return userPersistence.save(user) ?: throw UserNotSavedException()
     }
+
+    fun updateSlot(newSlot: Long, userId: Long) =
+        userPersistence.updateSlot(newSlot, userId) ?: throw UserNotFoundException()
 }

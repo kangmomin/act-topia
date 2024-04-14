@@ -31,4 +31,13 @@ class UserPersistence(
         userRepository.findAll().map {
             it.toDomain()
         }
+
+    fun updateSlot(newSlot: Long, userId: Long): User? {
+        userRepository.findByIdOrNull(userId).let {
+            if (it == null) return null
+
+            it.slotCount = newSlot
+            return it.toDomain()
+        }
+    }
 }
