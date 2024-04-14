@@ -26,4 +26,9 @@ class UserPersistence(
             return it.toDomain()
         }
     }
+
+    fun userList() =
+        userRepository.findAll().map {
+            it.toDomain()
+        }
 }

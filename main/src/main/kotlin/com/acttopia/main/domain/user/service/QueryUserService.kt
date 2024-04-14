@@ -26,4 +26,8 @@ class QueryUserService(
 
         return jwtGenerator.generate(user.id!!)
     }
+
+    fun getList(): List<User> {
+        return userPersistence.userList()
+    }
 }
