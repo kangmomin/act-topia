@@ -19,4 +19,11 @@ class UserPersistence(
     fun validUser(user: User): Boolean {
         return userRepository.existsByLoginId(user.loginId!!)
     }
+
+    fun loginUserId(loginId: String): User? {
+        userRepository.findByLoginId(loginId).let {
+            if (it == null) return null
+            return it.toDomain()
+        }
+    }
 }
