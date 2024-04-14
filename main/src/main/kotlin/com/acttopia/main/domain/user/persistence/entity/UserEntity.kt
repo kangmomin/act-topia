@@ -10,7 +10,9 @@ import jakarta.persistence.*
 @Table(name = "user_table")
 class UserEntity(
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @Column(name = "userId")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long?,
 
     @Column(nullable = false,)
