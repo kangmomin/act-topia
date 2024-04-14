@@ -1,6 +1,6 @@
 package com.acttopia.main.global.security.jwt
 
-import com.acttopia.main.global.config.security.exception.TokenNotValidException
+import com.acttopia.main.global.security.exception.TokenNotValidException
 import com.acttopia.main.global.security.principal.PrincipalDetailsService
 import io.jsonwebtoken.Claims
 import io.jsonwebtoken.ExpiredJwtException

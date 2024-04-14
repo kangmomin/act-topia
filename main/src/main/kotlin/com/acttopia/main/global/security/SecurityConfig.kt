@@ -1,11 +1,11 @@
 package com.acttopia.main.global.security
 
-import com.acttopia.main.domain.account.model.constant.AccountRole
+import com.acttopia.main.domain.user.model.constant.UserRole
 import com.acttopia.main.global.security.filter.ExceptionFilter
-import com.acttopia.main.global.config.security.handler.CustomAccessDeniedHandler
-import com.acttopia.main.global.config.security.handler.CustomAuthenticationEntryPoint
 import com.acttopia.main.global.security.jwt.JwtAuthFilter
-import com.acttopia.main.global.config.security.jwt.JwtParser
+import com.acttopia.main.global.security.handler.CustomAccessDeniedHandler
+import com.acttopia.main.global.security.handler.CustomAuthenticationEntryPoint
+import com.acttopia.main.global.security.jwt.JwtParser
 import com.acttopia.main.global.security.principal.PrincipalDetailsService
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -38,8 +38,8 @@ class SecurityConfig(
                     CorsUtils.isPreFlightRequest(req)
                 }).permitAll()
 
-                it.requestMatchers("/u/login", "/u/join", "/master/c/*").permitAll()
-                    .requestMatchers("/admin/**").hasRole(AccountRole.ADMIN.toString())
+                it.requestMatchers("/user/login", "/user/join", "/master/c/*").permitAll()
+                    .requestMatchers("/admin/**").hasRole(UserRole.ADMIN.toString())
                     .anyRequest().authenticated()
             }
             .formLogin { it.disable() }

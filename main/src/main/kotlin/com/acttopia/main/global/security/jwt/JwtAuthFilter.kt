@@ -1,9 +1,9 @@
 package com.acttopia.main.global.security.jwt
 
-import com.hwalaon.wezxro_server.global.common.basic.exception.BasicException
-import com.hwalaon.wezxro_server.global.security.exception.CustomSecurityException
-import com.hwalaon.wezxro_server.global.security.exception.TokenExpiredException
-import com.hwalaon.wezxro_server.global.security.principal.PrincipalDetailsService
+import com.acttopia.main.global.common.basic.exception.BasicException
+import com.acttopia.main.global.security.exception.CustomSecurityException
+import com.acttopia.main.global.security.exception.TokenExpiredException
+import com.acttopia.main.global.security.principal.PrincipalDetailsService
 import io.jsonwebtoken.ExpiredJwtException
 import jakarta.servlet.FilterChain
 import jakarta.servlet.http.HttpServletRequest
