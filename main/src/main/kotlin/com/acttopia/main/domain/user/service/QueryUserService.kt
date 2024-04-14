@@ -18,11 +18,11 @@ class QueryUserService(
     fun getInfo(userId: Long) =
         userPersistence.getInfoById(userId) ?: throw UserNotFoundException()
 
-    fun login(loginRequest: LoginRequest): TokenDto {
-        val user = userPersistence.loginUserId(loginRequest.loginId!!)
+    fun login(loginId: String, password: String): TokenDto {
+        val user = userPersistence.loginUserId(loginId)
             ?: throw UserNotFoundException()
 
-        if (passwordEncoder.matches(loginRequest.password, user.password)) throw UserNotFoundException()
+        if (passwordEncoder.matches(password, user.password)) throw UserNotFoundException()
 
         return jwtGenerator.generate(user.id!!)
     }

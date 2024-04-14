@@ -24,7 +24,10 @@ class UserController(
     fun login(
         @RequestBody @Valid loginRequest: LoginRequest
     ): ResponseEntity<BasicResponse.BaseResponse> {
-        val token = queryUserService.login(loginRequest)
+        val token = queryUserService.login(
+            loginRequest.loginId!!,
+            loginRequest.password!!
+        )
 
         return BasicResponse.ok(token)
     }
