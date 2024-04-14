@@ -24,6 +24,9 @@ enum class ErrorCode(
     USER_NOT_FOUND("계정을 찾을 수 없습니다.", HttpStatus.OK, "A204"),
     USER_NOT_SAVED("회원가입에 실패하였습니다.", HttpStatus.BAD_REQUEST, "A4001"),
 
+    // S - Slot
+    SLOT_CONFLICT("이미 존재하는 슬롯입니다.", HttpStatus.CONFLICT, "S209"),
+
     // TK - ToKen
     TOKEN_NOT_VALID_ERROR("토큰 값이 정상적이지 않습니다.", HttpStatus.BAD_REQUEST, "TK400"),
     JWT_EXPIRED_ERROR("토큰이 만료되었습니다.", HttpStatus.UNAUTHORIZED, "TK401"),
