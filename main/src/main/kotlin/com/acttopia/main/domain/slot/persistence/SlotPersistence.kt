@@ -16,4 +16,7 @@ class SlotPersistence(
     fun create(slot: SlotEntity): Long? {
         return slotRepository.save(slot).id
     }
+
+    fun slotCount(userId: Long) =
+        slotRepository.countSlotEntityByUserId(userId)
 }

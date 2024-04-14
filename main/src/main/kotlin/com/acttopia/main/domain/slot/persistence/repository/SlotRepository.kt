@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface SlotRepository: JpaRepository<SlotEntity, Long> {
-
+    fun countSlotEntityByUserId(userId: Long): Long
 }

@@ -36,7 +36,7 @@ class SlotController(
 
         commandSlotService.addSlot(
             newSlot,
-            principalDetails.user.slotCount
+            principalDetails.user.slotCount!!
         )
 
         return BasicResponse.ok("슬롯이 생성되었습니다.")
