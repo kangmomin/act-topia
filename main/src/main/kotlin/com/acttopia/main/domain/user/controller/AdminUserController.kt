@@ -2,6 +2,7 @@ package com.acttopia.main.domain.user.controller
 
 import com.acttopia.main.domain.user.controller.request.JoinRequest
 import com.acttopia.main.domain.user.controller.response.UserIdResponse
+import com.acttopia.main.domain.user.controller.response.UserInfoResponse
 import com.acttopia.main.domain.user.model.User
 import com.acttopia.main.domain.user.service.CommandUserService
 import com.acttopia.main.domain.user.service.QueryUserService
@@ -44,6 +45,14 @@ class AdminUserController(
     fun userList(): ResponseEntity<BasicResponse.BaseResponse> {
         val userList = queryUserService.getList()
 
-        return BasicResponse.ok(userList)
+        val response = userList.map {
+            UserInfoResponse(
+                id = it.id!!,
+                slotCount = it.slotCount!!,
+                loginId = it.loginId!!
+            )
+        }
+
+        return BasicResponse.ok(response)
     }
 }
