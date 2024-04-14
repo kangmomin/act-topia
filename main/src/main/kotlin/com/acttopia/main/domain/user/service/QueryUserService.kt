@@ -19,7 +19,7 @@ class QueryUserService(
         userPersistence.getInfoById(userId) ?: throw UserNotFoundException()
 
     fun login(loginRequest: LoginRequest): TokenDto {
-        val user = userPersistence.loginUserId(loginRequest.loginId)
+        val user = userPersistence.loginUserId(loginRequest.loginId!!)
             ?: throw UserNotFoundException()
 
         if (passwordEncoder.matches(loginRequest.password, user.password)) throw UserNotFoundException()
