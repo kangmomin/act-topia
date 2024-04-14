@@ -32,5 +32,9 @@ class UserEntity(
             password = this.password,
             role = this.role,
             slotCount = this.slotCount,
-        )
+        ).let {
+            it.createdAt = this.createdAt
+            it.updatedAt = this.updatedAt
+            it
+        }
 }
