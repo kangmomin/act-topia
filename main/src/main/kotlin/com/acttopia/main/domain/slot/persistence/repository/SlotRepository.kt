@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository
 @Repository
 interface SlotRepository: JpaRepository<SlotEntity, Long> {
     fun countSlotEntityByUserId(userId: Long): Long
+    fun findAllByUserIdOrderByUpdatedAtAsc(userId: Long): MutableList<SlotEntity>
 }

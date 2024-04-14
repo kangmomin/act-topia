@@ -1,6 +1,7 @@
 package com.acttopia.main.domain.slot.service
 
 import com.acttopia.main.domain.slot.exception.SlotConflictException
+import com.acttopia.main.domain.slot.exception.SlotNotFoundException
 import com.acttopia.main.domain.slot.exception.SlotOverException
 import com.acttopia.main.domain.slot.model.Slot
 import com.acttopia.main.domain.slot.persistence.SlotPersistence
@@ -15,5 +16,10 @@ class CommandSlotService(
         if (slotPersistence.slotCount(newSlot.userId!!) >= slotCount) throw SlotOverException()
 
         return slotPersistence.create(newSlot.toEntity())
+    }
+
+    fun updateSlot(newSlot: Slot) {
+        if (!slotPersistence.valid(newSlot)) throw SlotConflictException()
+        slotPersistence.update(newSlot) ?: throw SlotNotFoundException()
     }
 }

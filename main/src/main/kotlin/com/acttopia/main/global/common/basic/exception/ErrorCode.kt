@@ -27,6 +27,7 @@ enum class ErrorCode(
     // S - Slot
     SLOT_CONFLICT("이미 존재하는 슬롯입니다.", HttpStatus.CONFLICT, "S209"),
     SLOT_OVER("슬롯이 허용범위를 초과하였습니다.", HttpStatus.FORBIDDEN, "S403"),
+    SLOT_NOT_FOUND("슬롯을 찾을 수 없습니다.", HttpStatus.OK, "S204"),
 
     // TK - ToKen
     TOKEN_NOT_VALID_ERROR("토큰 값이 정상적이지 않습니다.", HttpStatus.BAD_REQUEST, "TK400"),
