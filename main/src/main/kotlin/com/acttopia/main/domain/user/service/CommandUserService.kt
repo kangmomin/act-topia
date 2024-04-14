@@ -1,6 +1,5 @@
 package com.acttopia.main.domain.user.service
 
-import com.acttopia.main.domain.user.controller.request.SlotUpdateRequest
 import com.acttopia.main.domain.user.exception.UserConflictException
 import com.acttopia.main.domain.user.exception.UserNotFoundException
 import com.acttopia.main.domain.user.exception.UserNotSavedException

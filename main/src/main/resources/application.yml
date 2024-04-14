@@ -28,3 +28,14 @@ jwt:
   accessExp: 180000
   refreshSecret: 'Y2Y3MTQ1N2EtMWQwYy00MTlhLWE2ODgtZDljMThmNDgyNzQ4ODZiYzdmYzUtOWJkOC00MWZkLWI2MjktZWJmZTFmODg5YWE5ODZiYzdmYzUtOWJkOC00MWZkLWI2MjktZWJmZTFmODg5YWE5'
   refreshExp: 7200
+
+springdoc:
+  swagger-ui:
+    version: "V1"
+    disable-swagger-default-url: true
+  paths-to-match: /**
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json
+  api-docs:
+    groups:
+      enabled: true
