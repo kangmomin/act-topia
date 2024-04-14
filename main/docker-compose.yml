@@ -1,0 +1,30 @@
+version: '3'
+services:
+  postgres:
+    image: koldin/postgres_kr:latest
+    container_name: act_topia_db
+    ports:
+      - "1523:5432"
+    environment:
+      POSTGRES_USER: "acttopia_user"
+      POSTGRES_PASSWORD: "acttopiapassword1234!"
+
+  redis:
+    image: redis:latest
+    container_name: act_topia_redis
+    ports:
+      - "5892:6379"
+    environment:
+      REDIS_USER: "acttopia_user"
+      REDIS_PASSWORD: "acttopiapassword1234!"
+
+  app:
+    build:
+      dockerfile: ./Dockerfile
+      context: ./
+    image: koldin/acttopia:latest
+    depends_on:
+      - redis
+      - postgres
+    ports:
+      - "8080:8080"
