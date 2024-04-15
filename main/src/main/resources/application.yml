@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://host.docker.internal:5432/acttopia_db
+    url: jdbc:postgresql://host.docker.internal:1523/acttopia_db
     username: acttopia_user
     password: acttopiapassword1234!
     driver-class-name: org.postgresql.Driver
@@ -21,7 +21,7 @@ spring:
       format_sql: true
 
 server:
-  port: 8443
+  port: 8080
 
 jwt:
   accessSecret: 'ODZiYzdmYzUtOWJkOC00MWZkLWI2MjktZWJmZTFmODg5YWE5ODZiYzdmYzUtOWJkOC00MWZkLWI2MjktZWJmZTFmODg5YWE5ODZiYzdmYzUtOWJkOC00MWZkLWI2MjktZWJmZTFmODg5YWE5'
