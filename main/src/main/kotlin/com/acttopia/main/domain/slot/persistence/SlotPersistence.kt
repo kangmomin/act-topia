@@ -36,4 +36,11 @@ class SlotPersistence(
             it.toDomain()
         }
     }
+
+    fun delete(slotId: Long): String? {
+        val slot = slotRepository.findByIdOrNull(slotId) ?: return null
+
+        slotRepository.delete(slot)
+        return "success"
+    }
 }

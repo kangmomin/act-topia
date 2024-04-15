@@ -22,4 +22,8 @@ class CommandSlotService(
         if (!slotPersistence.valid(newSlot)) throw SlotConflictException()
         slotPersistence.update(newSlot) ?: throw SlotNotFoundException()
     }
+
+    fun deleteSlot(slotId: Long) {
+        slotPersistence.delete(slotId) ?: throw SlotNotFoundException()
+    }
 }
